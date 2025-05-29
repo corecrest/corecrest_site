@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Define gradients -->
+    <defs>
+        <linearGradient id="bg-gradient" x1="0" y1="0" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1A252F;stop-opacity:1" />
+        </linearGradient>
+        
+        <linearGradient id="line-gradient" x1="0" y1="0" x2="100%" y2="0">
+            <stop offset="0%" style="stop-color:#20B2AA;stop-opacity:0.1" />
+            <stop offset="50%" style="stop-color:#20B2AA;stop-opacity:0.3" />
+            <stop offset="100%" style="stop-color:#20B2AA;stop-opacity:0.1" />
+        </linearGradient>
+        
+        <!-- Particle pattern -->
+        <pattern id="dots" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+            <circle cx="25" cy="25" r="1" fill="#20B2AA" fill-opacity="0.3"/>
+        </pattern>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-gradient)"/>
+    <rect width="100%" height="100%" fill="url(#dots)"/>
+
+    <!-- Animated circuit lines -->
+    <g opacity="0.15">
+        <!-- Horizontal lines -->
+        <path d="M0 200 L1920 400" stroke="url(#line-gradient)" stroke-width="1">
+            <animate attributeName="stroke-dashoffset" from="0" to="-100" dur="10s" repeatCount="indefinite"/>
+        </path>
+        <path d="M0 600 L1920 500" stroke="url(#line-gradient)" stroke-width="1">
+            <animate attributeName="stroke-dashoffset" from="-100" to="0" dur="15s" repeatCount="indefinite"/>
+        </path>
+        <path d="M0 800 L1920 900" stroke="url(#line-gradient)" stroke-width="1">
+            <animate attributeName="stroke-dashoffset" from="0" to="-100" dur="12s" repeatCount="indefinite"/>
+        </path>
+
+        <!-- Circuit paths -->
+        <path d="M200 0 Q400 200 200 400 T200 800 T200 1080" stroke="#20B2AA" stroke-width="1" fill="none" opacity="0.2"/>
+        <path d="M600 0 Q800 300 600 600 T600 1080" stroke="#20B2AA" stroke-width="1" fill="none" opacity="0.2"/>
+        <path d="M1000 0 Q1200 400 1000 800 T1000 1080" stroke="#20B2AA" stroke-width="1" fill="none" opacity="0.2"/>
+        <path d="M1400 0 Q1600 200 1400 400 T1400 800 T1400 1080" stroke="#20B2AA" stroke-width="1" fill="none" opacity="0.2"/>
+        <path d="M1800 0 Q2000 300 1800 600 T1800 1080" stroke="#20B2AA" stroke-width="1" fill="none" opacity="0.2"/>
+    </g>
+
+    <!-- Tech elements -->
+    <g opacity="0.2">
+        <!-- Code brackets -->
+        <path d="M300 200 L250 250 L300 300" stroke="#20B2AA" stroke-width="2" fill="none"/>
+        <path d="M350 200 L400 250 L350 300" stroke="#20B2AA" stroke-width="2" fill="none"/>
+        
+        <path d="M1600 800 L1550 850 L1600 900" stroke="#20B2AA" stroke-width="2" fill="none"/>
+        <path d="M1650 800 L1700 850 L1650 900" stroke="#20B2AA" stroke-width="2" fill="none"/>
+
+        <!-- Connection nodes -->
+        <circle cx="500" cy="400" r="4" fill="#20B2AA"/>
+        <circle cx="1400" cy="300" r="4" fill="#20B2AA"/>
+        <circle cx="800" cy="700" r="4" fill="#20B2AA"/>
+        <circle cx="1200" cy="600" r="4" fill="#20B2AA"/>
+
+        <!-- Binary text -->
+        <text x="700" y="200" fill="#20B2AA" font-family="monospace" font-size="14">01</text>
+        <text x="1100" y="500" fill="#20B2AA" font-family="monospace" font-size="14">10</text>
+        <text x="900" y="800" fill="#20B2AA" font-family="monospace" font-size="14">11</text>
+    </g>
+
+    <!-- Glowing effects -->
+    <g opacity="0.1">
+        <circle cx="500" cy="400" r="100" fill="url(#line-gradient)" filter="blur(40px)"/>
+        <circle cx="1400" cy="300" r="120" fill="url(#line-gradient)" filter="blur(40px)"/>
+        <circle cx="900" cy="700" r="150" fill="url(#line-gradient)" filter="blur(50px)"/>
+    </g>
+</svg> 

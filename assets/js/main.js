@@ -343,6 +343,105 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check for new elements to animate during scroll
     window.addEventListener('scroll', animateOnScroll);
+    
+    // Stats Animation
+    const animateStats = () => {
+        const statsSection = document.querySelector('.stats-section');
+        const statItems = document.querySelectorAll('.stat-item');
+        const statValues = document.querySelectorAll('.stat-value');
+        
+        const animateValue = (element, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentValue = Math.floor(progress * (end - start) + start);
+                element.textContent = currentValue;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    element.classList.add('animate');
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate section
+                    statsSection.classList.add('animate');
+                    
+                    // Animate items
+                    statItems.forEach(item => {
+                        item.classList.add('animate');
+                    });
+                    
+                    // Animate numbers
+                    statValues.forEach(value => {
+                        const endValue = parseInt(value.getAttribute('data-value'));
+                        animateValue(value, 0, endValue, 2000);
+                    });
+                    
+                    // Unobserve after animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        observer.observe(statsSection);
+    };
+
+    // Initialize stats animation
+    animateStats();
+
+    // About Features Animation
+    const animateAboutFeatures = () => {
+        const features = document.querySelectorAll('.about-feature');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        features.forEach(feature => {
+            observer.observe(feature);
+        });
+    };
+
+    // Initialize about features animation
+    animateAboutFeatures();
+
+    // Services Animation
+    const animateServices = () => {
+        const services = document.querySelectorAll('.service-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        services.forEach(service => {
+            observer.observe(service);
+        });
+    };
+
+    // Initialize services animation
+    animateServices();
 });
 
 // Toast notification system

@@ -1,0 +1,187 @@
+/* Feedback Section Styles */
+.feedback-section {
+    padding: 120px 0 80px;
+    background-color: var(--light-gray);
+    min-height: calc(100vh - 100px);
+}
+
+.feedback-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feedback-content h1 {
+    text-align: center;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.feedback-intro {
+    text-align: center;
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-form-container {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Rating Stars Styles */
+.rating-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 30px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+    color: #ffd700;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    transform: scale(1.1);
+}
+
+/* Form Animations */
+.form-group {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.form-group:focus-within {
+    transform: translateY(-2px);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.1);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--navy);
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+/* Checkbox Styles */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.checkbox-container label {
+    margin: 0;
+    font-weight: normal;
+}
+
+/* Submit Button Styles */
+.feedback-form button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.feedback-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(32, 178, 170, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .feedback-section {
+        padding: 100px 0 60px;
+    }
+
+    .feedback-form-container {
+        padding: 30px 20px;
+    }
+
+    .feedback-form {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-section {
+        padding: 80px 0 40px;
+    }
+
+    .feedback-content h1 {
+        font-size: 2rem;
+    }
+
+    .feedback-intro {
+        font-size: 1rem;
+    }
+
+    .rating label {
+        font-size: 25px;
+    }
+} 

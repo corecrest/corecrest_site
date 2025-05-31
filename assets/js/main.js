@@ -442,6 +442,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize services animation
     animateServices();
+
+    // Hero Text Rotation
+    const heroTextSlides = document.querySelectorAll('.hero-text-slide');
+    let currentSlideIndex = 0;
+    const rotationInterval = 30000; // 30 seconds
+
+    function rotateHeroText() {
+        // Remove active class from current slide
+        heroTextSlides[currentSlideIndex].classList.remove('active');
+        
+        // Update index
+        currentSlideIndex = (currentSlideIndex + 1) % heroTextSlides.length;
+        
+        // Add active class to new slide
+        heroTextSlides[currentSlideIndex].classList.add('active');
+    }
+
+    // Start rotation if there are slides
+    if (heroTextSlides.length > 1) {
+        // Set initial state
+        heroTextSlides[0].classList.add('active');
+        
+        // Start rotation
+        setInterval(rotateHeroText, rotationInterval);
+    }
 });
 
 // Toast notification system

@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // Send the data to the API
-                const response = await fetch('http://24.199.71.231:8000/api/v1/notifications/', {
+                const response = await fetch('http://64.227.102.129:8000/api/v1/notifications/', {
                     method: 'POST',
                     headers: {
                         'accept': 'application/json',

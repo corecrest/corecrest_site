@@ -239,11 +239,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // Send the data to the API
-                const response = await fetch('http://notification-api-dev.local:8000/api/v1/notifications/', {
+                const response = await fetch('http://24.199.71.231:8000/api/v1/notifications/', {
                     method: 'POST',
                     headers: {
                         'accept': 'application/json',
-                        'x-api-key': 'fQ-3b9YpQdjuoQZGsyVwDhrR_Ob5griuKpC9cscuFd8',
+                        'x-api-key': 'IZlilZJjyGz04dm6saDqJAzv5HXRih5p7BNE2jY8ZFoAaezu',
                         'Content-Type': 'application/json',
                         'Origin': window.location.origin,
                         'Access-Control-Request-Method': 'POST'

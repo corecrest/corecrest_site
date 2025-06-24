@@ -239,11 +239,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // Send the data to the API
-                const response = await fetch('http://64.227.102.129:8000/api/v1/notifications/', {
+                const response = await fetch('https://backend-production-ee6bf.up.railway.app/api/submit/contact', {
                     method: 'POST',
                     headers: {
                         'accept': 'application/json',
-                        'x-api-key': 'IZlilZJjyGz04dm6saDqJAzv5HXRih5p7BNE2jY8ZFoAaezu',
                         'Content-Type': 'application/json',
                         'Origin': window.location.origin,
                         'Access-Control-Request-Method': 'POST'

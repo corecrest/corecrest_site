@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // Send the data to the API
-                const response = await fetch('https://backend-production-ee6bf.up.railway.app/api/submit/contact', {
+                const response = await fetch('https://bff.corecrest.tech/api/submit/contact', {
                     method: 'POST',
                     headers: {
                         'accept': 'application/json',
@@ -254,7 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         subject: emailSubject,
                         body: emailBody,
                         priority: 2,
-                        notification_type: 'email'
+                        notification_type: 'email',
+                        source: 'corecrest'
                     })
                 });
                 

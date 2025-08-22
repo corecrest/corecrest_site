@@ -515,3 +515,148 @@ contactForm.querySelectorAll('input, textarea, select').forEach(input => {
         }
     });
 }); 
+
+// ===========================
+// Blog Page Functionality
+// ===========================
+
+// Blog page specific functionality
+if (window.location.pathname.includes('blogs.html') || window.location.pathname.endsWith('blogs.html')) {
+    
+    // Load More Articles Functionality
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // Simulate loading more articles
+            this.textContent = 'Loading...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                // Add more blog cards (this would typically come from an API)
+                const blogGrid = document.querySelector('.blog-grid');
+                const newArticles = [
+                    {
+                        image: 'https://via.placeholder.com/400x250/2C3E50/FFFFFF?text=Cloud+Computing',
+                        category: 'Cloud Computing',
+                        date: 'November 15, 2024',
+                        title: 'Cloud Migration Strategies for African Enterprises',
+                        excerpt: 'Essential strategies and best practices for African businesses looking to migrate their infrastructure to the cloud.'
+                    },
+                    {
+                        image: 'https://via.placeholder.com/400x250/20B2AA/FFFFFF?text=Cybersecurity',
+                        category: 'Cybersecurity',
+                        date: 'November 10, 2024',
+                        title: 'Cybersecurity Best Practices for Small Businesses',
+                        excerpt: 'Protect your business with these essential cybersecurity practices that every small business should implement.'
+                    }
+                ];
+                
+                newArticles.forEach(article => {
+                    const articleElement = createBlogCard(article);
+                    blogGrid.appendChild(articleElement);
+                });
+                
+                // Reset button
+                this.textContent = 'Load More Articles';
+                this.disabled = false;
+                
+                // Show success message
+                showToast('More articles loaded successfully!', 'success');
+            }, 1500);
+        });
+    }
+    
+    // Newsletter Subscription
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                showToast('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Simulate newsletter subscription
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Success
+                showToast('Thank you for subscribing to our newsletter!', 'success');
+                emailInput.value = '';
+                
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1000);
+        });
+    }
+    
+    // Blog Card Hover Effects
+    const blogCards = document.querySelectorAll('.blog-card');
+    blogCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Read More Link Functionality
+    const readMoreLinks = document.querySelectorAll('.read-more');
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the blog post title
+            const blogTitle = this.closest('.blog-card').querySelector('h3').textContent;
+            
+            // Show a toast message (in a real app, this would navigate to the full article)
+            showToast(`Reading: ${blogTitle}`, 'success');
+            
+            // Simulate loading the full article
+            setTimeout(() => {
+                showToast('This would open the full article in a real implementation.', 'info');
+            }, 1000);
+        });
+    });
+}
+
+// Helper function to create blog cards
+function createBlogCard(articleData) {
+    const article = document.createElement('article');
+    article.className = 'blog-card';
+    
+    article.innerHTML = `
+        <div class="blog-image">
+            <img src="${articleData.image}" alt="${articleData.title}" onerror="this.src='https://via.placeholder.com/400x250/2C3E50/FFFFFF?text=Blog+Post'">
+        </div>
+        <div class="blog-content">
+            <div class="blog-meta">
+                <span class="blog-date">${articleData.date}</span>
+                <span class="blog-category-tag">${articleData.category}</span>
+            </div>
+            <h3>${articleData.title}</h3>
+            <p>${articleData.excerpt}</p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+    `;
+    
+    // Add event listeners to the new card
+    const readMoreLink = article.querySelector('.read-more');
+    readMoreLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const blogTitle = this.closest('.blog-card').querySelector('h3').textContent;
+        showToast(`Reading: ${blogTitle}`, 'success');
+    });
+    
+    return article;
+} 

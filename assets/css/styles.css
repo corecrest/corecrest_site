@@ -1229,22 +1229,64 @@ img {
    CTA Section
    =========================== */
 .cta-section {
-    padding: 0 0 40px;
-    background-color: var(--navy);
+    background: linear-gradient(135deg, var(--navy), var(--teal));
     color: var(--white);
+    padding: 40px;
+    border-radius: 16px;
     text-align: center;
-    position: relative;
+    margin: 25px 0;
 }
 
-.cta-content h2 {
+.cta-section h3 {
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
-.cta-content p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 3rem;
+.cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.cta-section .btn {
+    background: var(--white);
+    color: var(--teal);
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-section .btn:hover {
+    background: var(--light-gray);
+    transform: translateY(-2px);
+}
+
+.cta-section .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.cta-section .btn-secondary:hover {
+    background: var(--white);
+    color: var(--navy);
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 20px 0 0 0;
+    font-style: italic;
 }
 
 .contact-form-container {
@@ -2421,38 +2463,64 @@ img {
 
 /* Call to Action Section */
 .cta-section {
-    padding: 0 0 40px;
-    background-color: var(--navy);
+    background: linear-gradient(135deg, var(--navy), var(--teal));
     color: var(--white);
+    padding: 40px;
+    border-radius: 16px;
     text-align: center;
-    position: relative;
+    margin: 25px 0;
 }
 
 .cta-section h3 {
     color: var(--white);
-    margin-bottom: 12px;
-    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 .cta-section p {
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
 }
 
 .cta-section .btn {
     background: var(--white);
     color: var(--teal);
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 1.1rem;
     font-weight: 600;
     border-radius: 8px;
     transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .cta-section .btn:hover {
     background: var(--light-gray);
     transform: translateY(-2px);
+}
+
+.cta-section .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.cta-section .btn-secondary:hover {
+    background: var(--white);
+    color: var(--navy);
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 20px 0 0 0;
+    font-style: italic;
 }
 
 /* Article Footer */

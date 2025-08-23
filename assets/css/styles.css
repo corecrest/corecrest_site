@@ -3188,19 +3188,248 @@ img {
     margin-right: auto;
 }
 
-.blog-cta-section .btn {
-    background: var(--white);
-    color: var(--teal);
-    padding: 18px 40px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border: 2px solid var(--white);
-}
+        .blog-cta-section .btn {
+            background: var(--white);
+            color: var(--teal);
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--white);
+        }
+
+        /* Blog CTA Links Styling */
+        .blog-cta-links {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .blog-cta-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            margin: 0 8px;
+            display: inline-block;
+        }
+
+        .blog-cta-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-cta-separator {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            margin: 0 5px;
+            font-weight: 300;
+        }
+
+        /* Blog Figure Styling */
+        .blog-figure {
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .blog-figure img {
+            max-width: 60%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .blog-figure img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-figure figcaption {
+            flex: 1;
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.95rem;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid var(--teal);
+            text-align: left;
+            margin: 0;
+        }
+
+        /* Cost Comparison Visualization */
+        .cost-comparison-visual {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .cost-chart {
+            position: relative;
+            height: 200px;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-line {
+            position: absolute;
+            height: 3px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-line {
+            top: 60px;
+            left: 50px;
+            right: 50px;
+            background: linear-gradient(to right, #dc3545, #28a745);
+            transform: rotate(-15deg);
+        }
+
+        .offshelf-line {
+            top: 120px;
+            left: 50px;
+            right: 50px;
+            background: linear-gradient(to right, #28a745, #dc3545);
+            transform: rotate(15deg);
+        }
+
+        .line-point {
+            position: absolute;
+            background: #fff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+        }
+
+        .custom-line .start {
+            top: -15px;
+            left: -10px;
+            color: #dc3545;
+        }
+
+        .custom-line .end {
+            top: -15px;
+            right: -10px;
+            color: #28a745;
+        }
+
+        .offshelf-line .start {
+            top: -15px;
+            left: -10px;
+            color: #28a745;
+        }
+
+        .offshelf-line .end {
+            top: -15px;
+            right: -10px;
+            color: #dc3545;
+        }
+
+        .chart-labels {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .label-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .label-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .custom-color {
+            background: linear-gradient(45deg, #dc3545, #28a745);
+        }
+
+        .offshelf-color {
+            background: linear-gradient(45deg, #28a745, #dc3545);
+        }
+
+        .chart-caption {
+            margin-top: 20px;
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design for Cost Chart */
+        @media (max-width: 768px) {
+            .cost-comparison-visual {
+                padding: 20px;
+                margin: 20px 0;
+            }
+
+            .cost-chart {
+                height: 150px;
+                padding: 15px;
+            }
+
+            .chart-line {
+                left: 30px;
+                right: 30px;
+            }
+
+            .line-point {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+
+            .chart-labels {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Responsive Design for Blog Figure */
+        @media (max-width: 768px) {
+            .blog-figure {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .blog-figure img {
+                max-width: 100%;
+            }
+
+            .blog-figure figcaption {
+                text-align: center;
+            }
+        }
 
 .blog-cta-section .btn:hover {
     background: transparent;

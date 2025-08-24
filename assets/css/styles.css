@@ -1689,7 +1689,7 @@ img {
     }
     
     .stats-section {
-        margin: 40px 0;
+        margin: -40px 0 -40px 0;
     }
     
     .stats-container {
@@ -1703,11 +1703,11 @@ img {
     }
     
     .about-section {
-        padding-bottom: 60px;
+        padding-bottom: 40px;
     }
     
     .cta-section {
-        padding-top: 60px;
+        padding-top: 40px;
     }
 }
 

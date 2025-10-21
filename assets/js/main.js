@@ -219,23 +219,42 @@ document.addEventListener('DOMContentLoaded', () => {
             // Prepare the email body (formatted for better readability)
             const subjectText = subject === 'Other' ? otherSubject : subject;
             const emailSubject = `Website Inquiry: ${subjectText}`;
-            const emailBody = `
-                New Contact Form Submission
-                ---------------------------
-
-                Name: ${name}
-                Email: ${email}
-                Company: ${company}
-                Phone: ${phone}
-                Service Interest: ${subjectText}
-
-                Message:
-                ${message}
-
-                ---------------------------
-                Sent from CoreCrest website
-                `
-            ;
+            const emailBody = `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <div style="background: linear-gradient(135deg, #2C3E50, #20B2AA); color: white; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
+        <h1 style="margin: 0; font-size: 24px; font-weight: bold;">NEW CONTACT FORM SUBMISSION</h1>
+    </div>
+    
+    <div style="background: #f8f9fa; padding: 20px; border: 1px solid #e9ecef; border-top: none;">
+        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2 style="color: #2C3E50; margin-top: 0; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #20B2AA; padding-bottom: 8px;">CLIENT INFORMATION</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50; width: 30%;">Name:</td><td style="padding: 8px 0;">${name}</td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50;">Email:</td><td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #20B2AA; text-decoration: none;">${email}</a></td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50;">Company:</td><td style="padding: 8px 0;">${company}</td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50;">Phone:</td><td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #20B2AA; text-decoration: none;">${phone}</a></td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50;">Service Interest:</td><td style="padding: 8px 0; background: #e8f4f8; padding: 8px; border-radius: 4px; color: #2C3E50;">${subjectText}</td></tr>
+            </table>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2 style="color: #2C3E50; margin-top: 0; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #20B2AA; padding-bottom: 8px;">MESSAGE DETAILS</h2>
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border-left: 4px solid #20B2AA; white-space: pre-wrap;">${message}</div>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2 style="color: #2C3E50; margin-top: 0; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #20B2AA; padding-bottom: 8px;">SUBMISSION DETAILS</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50; width: 30%;">Submission Time:</td><td style="padding: 8px 0;">${new Date().toLocaleString()}</td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50;">Source:</td><td style="padding: 8px 0;">CoreCrest Website Contact Form</td></tr>
+                <tr><td style="padding: 8px 0; font-weight: bold; color: #2C3E50;">Priority:</td><td style="padding: 8px 0; background: #d4edda; color: #155724; padding: 4px 8px; border-radius: 4px; display: inline-block;">Normal</td></tr>
+            </table>
+        </div>
+    </div>
+    
+    <div style="background: #2C3E50; color: white; padding: 15px; border-radius: 0 0 8px 8px; text-align: center; font-size: 12px;">
+        This email was automatically generated from the CoreCrest website.
+    </div>
+</div>`;
             
             try {
                 // Send the data to the API
@@ -253,6 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         recipient: 'info@corecrest.tech', // Replace with your actual recipient email
                         subject: emailSubject,
                         body: emailBody,
+                        body_type: 'html',
+                        content_encoding: 'plain',
                         priority: 2,
                         notification_type: 'email',
                         source: 'corecrest'
@@ -391,7 +412,9 @@ document.addEventListener('DOMContentLoaded', () => {
             threshold: 0.2
         });
 
-        observer.observe(statsSection);
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
     };
 
     // Initialize stats animation
@@ -467,6 +490,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start rotation
         setInterval(rotateHeroText, rotationInterval);
     }
+
+    // Remove error class on input (only if contactForm exists)
+    if (contactForm) {
+        contactForm.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    this.classList.remove('error');
+                }
+            });
+        });
+    }
 });
 
 // Toast notification system
@@ -506,15 +540,6 @@ function closeToast(toast) {
         toast.remove();
     });
 }
-
-// Remove error class on input
-contactForm.querySelectorAll('input, textarea, select').forEach(input => {
-    input.addEventListener('input', function() {
-        if (this.classList.contains('error')) {
-            this.classList.remove('error');
-        }
-    });
-}); 
 
 // ===========================
 // Blog Page Functionality
